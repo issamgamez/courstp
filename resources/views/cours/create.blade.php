@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
             <label for="numero">Numero</label>
-            <input type="text" class="form-control" id="numero" name="numero" required>
+            <input type="number" class="form-control" id="numero" name="numero" required>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
@@ -23,11 +23,18 @@
         </div>
         <div class="form-group">
             <label for="mase_horaire">Mase Horaire</label>
-            <input type="text" class="form-control" id="mase_horaire" name="mase_horaire" required>
+            <input type="number" class="form-control" id="mase_horaire" name="mase_horaire" required>
         </div>
         <div class="form-group">
+            <section>
             <label for="specialite">Specialité</label>
-            <input type="text" class="form-control" id="specialite" name="specialite" required>
+            <select class="form-control" id="specialite" name="specialite" required>
+                @foreach($specialite as $special)
+                    <option value="{{ $special->title }}">{{ $special->title }}</option>
+                @endforeach
+            </select>
+</section>
+
         </div>
         <div class="form-group form-check">
             <input type="hidden" name="bestseller" value="0">

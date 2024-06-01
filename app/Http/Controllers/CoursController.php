@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CoursModel;
+use App\Models\SpecialiteModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,8 @@ class CoursController extends Controller
 
     // create
     public function create(){
-        return view('cours.create');
+        $specialite = SpecialiteModel::all();
+        return view('cours.create',compact('specialite'));
     }
 
     public function store(Request $request)

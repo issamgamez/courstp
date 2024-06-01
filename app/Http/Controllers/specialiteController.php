@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SpecialiteModel;
 use Illuminate\Http\Request;
 
-class specialiteController extends Controller
+class SpecialiteController extends Controller
 {
-    //
+    
 }
