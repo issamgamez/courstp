@@ -13,17 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cours', function (Blueprint $table) {
+        Schema::create('objectifs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger("numero")->unique();
-            $table->string("title");
-            $table->string("images");
+            $table->unsignedInteger('coursid');
+            $table->foreign('coursid')->references('numero')->on('cours')->onDelete('cascade');
             $table->text("description"); 
-            $table->integer("mase_horaire");
-            $table->string("specialite");
-            $table->boolean("bestseller"); 
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cours');
+        Schema::dropIfExists('objectifs');
     }
 };
