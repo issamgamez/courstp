@@ -21,8 +21,7 @@ class CoursController extends Controller
         return view('cours.create',compact('specialite'));
     }
 
-    public function store(Request $request)
-{
+    public function store(Request $request){
     $data = $request->all();
 
     if ($request->hasFile('images')) {
@@ -33,7 +32,7 @@ class CoursController extends Controller
     CoursModel::create($data);
 
     return redirect()->route('dashboard');
-}
+    }
  
     // edit
     public  function edit($id){
@@ -66,7 +65,7 @@ class CoursController extends Controller
     public function objectifs($id)
     {
         $course = CoursModel::findOrFail($id);
-        $objectifs = $course->objectifs; // Assuming you have a relation defined in Course model
+        $objectifs = $course->objectifs; 
         return view('objectifs.objectifs', compact('course', 'objectifs'));
     }
 }
